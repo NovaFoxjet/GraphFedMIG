@@ -76,7 +76,6 @@ class GraphFedMIGServer:
             del self.clusters[cluster2_idx]
 
     def train(self, rounds, rounds2=5, lr=0.01):
-        # 执行层次聚类
         self.hierarchical_clustering()
         self.get_all_proto()
         for cluster in self.clusters:
@@ -87,12 +86,9 @@ class GraphFedMIGServer:
             n=n+1
         best_val_loss = 1e6
         best_test_acc = 0
-        # 初始化优化器
         optimizer = torch.optim.Adam(self.client_list[0].gnn.parameters(), lr=lr)
 
-        # 多轮训练
         for round in range(1, rounds + 1):
-            # 簇内训练
             for cluster in self.clusters:
                 index=0
                 self.intra_cluster_training(cluster, rounds2,index)
