@@ -40,26 +40,6 @@ def run(dataset_name, epochs,round, hidden, lr, pretrain_epochs, threshold, seed
     # 绘制训练损失曲线
 
 
-    plt.figure(figsize=(12, 5))
-    plt.subplot(1, 2, 1)
-    plt.plot(server.global_train_loss_history, label='Training Loss')
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.title('Training Loss Curve')
-    plt.legend()
-
-    # 绘制测试准确率曲线
-    plt.subplot(1, 2, 2)
-    plt.plot(server.global_test_acc_history, label='Test Accuracy')
-    torch.save(server.global_test_acc_history, 'L2acc.pt')
-    plt.xlabel('Epoch')
-    plt.ylabel('Accuracy')
-    plt.title('Test Accuracy Curve')
-    plt.legend()
-
-    plt.tight_layout()
-    plt.show()
-
     print('Arch: {:s} | dataset: {:s} | lr: {:6.4f} | epochs:{:2d} | hidden: {:3d} | pretrain_epochs: {:2d} | threshold: {:4.2f} | seed: {:2d} | best_test_acc: {:6.4f} | true_acc_minority: {:6.4f}| acc_minority: {:6.4f}| allavg_recall: {:6.4f}| allavg_precision: {:6.4f}'
           .format(arch_name, dataset_name, lr, epochs, hidden, pretrain_epochs, threshold, seed, best_test_acc,true_acc_minority,acc_minority,allavg_recall, allavg_precision ))
 
