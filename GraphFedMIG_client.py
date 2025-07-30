@@ -25,7 +25,6 @@ class GraphFedMIGClient:
         self.labels = self.labels.squeeze().to(device)
         if dataset_name == "EllipticBitcoinDataset":
             self.labels = torch.tensor(self.labels.squeeze().to(device) / 2, dtype=torch.int64)
-        # 计算并存储标签分布
         self.label_dist = torch.bincount(self.labels[self.trainIdx]).tolist()
         self.classes = [c for c in range(dataset.num_classes)]
         self.lr = lr

@@ -294,7 +294,6 @@ class GraphFedMIGServer:
 
 
     def inter_cluster_training(self):
-        # 将每个簇视为一个客户端，收集所有簇的判别模型参数
         go_dis_model = self.dis[0].state_dict()
         for key in go_dis_model:
             if go_dis_model[key].data.dtype == torch.float32:
