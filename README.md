@@ -1,8 +1,6 @@
 # GraphFedMIG
 
 > **GraphFedMIG: Tackling Class Imbalance in Federated Graph Learning via Mutual Information-Guided Generation**
->
-> Xinrui Li, Qilin Fan, Tianfu Wang, Kaiwen Wei, Ke Yu, Xu Zhang
 
 ## Abstract
 
